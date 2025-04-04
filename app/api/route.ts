@@ -1,18 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-//     let userQuery = req.query;
-//     const CAT_API_KEY = process.env.CAT_API_KEY;
-//     let apiKeyString = `&api_key=${CAT_API_KEY}`;
-//     const CAT_API_ENDPOINT = "https://api.thecatapi.com/v1/images/search?";
-//     let url = CAT_API_ENDPOINT + new URLSearchParams(userQuery as any) + apiKeyString;
-//     console.log(url);
-//     print();
-//     res.status(200).json({ message: "Hello from the API!" });
-// }
-
 export async function GET(req: NextRequest) {
-    const CAT_API_KEY = process.env.CAT_API_KEY;
+    const CAT_API_KEY = String(process.env.CAT_API_KEY);
     const apiKeyString = `&api_key=${CAT_API_KEY}`;
     const CAT_API_ENDPOINT = "https://api.thecatapi.com/v1/images/search?";
     const queryParams = req.nextUrl.searchParams.toString();
