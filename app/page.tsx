@@ -11,14 +11,14 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchCats() {
-      let data = await fetch(`${API_ENDPOINT}`);
+      const data = await fetch(`${API_ENDPOINT}`);
       if (!data.ok) {
         throw new Error("Network response was not ok");
       }
       data.json().then((data: catProps) => setCatPropsData(data));
     }
     fetchCats();
-  }, []);
+  }, [API_ENDPOINT]);
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">

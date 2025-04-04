@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 
 export default function Page() {
     const API_ENDPOINT = "https://api.thecatapi.com/v1/breeds/";
-    let p = useParams();
-    let breedId = p.breed as string;
+    const p = useParams();
+    const breedId = p.breed as string;
     const API_URL = API_ENDPOINT + breedId;
     // console.log(API_URL);
 
-    let [breedInfo, setBreedInfo] = useState({} as breedInfo);
+    const [breedInfo, setBreedInfo] = useState({} as breedInfo);
 
     useEffect(() => {
         async function fetchBreed() {
@@ -25,7 +25,7 @@ export default function Page() {
             setBreedInfo(data);
         }
         fetchBreed();
-    }, []);
+    }, [API_URL]);
 
     return (
         <main className="flex flex-col items-center justify-between min-h-screen">
