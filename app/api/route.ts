@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     const CAT_API_ENDPOINT = "https://api.thecatapi.com/v1/images/search?";
     const queryParams = req.nextUrl.searchParams.toString();
     const url = CAT_API_ENDPOINT.concat(queryParams).concat(apiKeyString);
-    // console.log(url);
+    console.log(url);
 
     try {
         const response = await fetch(url);
