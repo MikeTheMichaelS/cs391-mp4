@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [catPropsData, setCatPropsData] = useState([] as catProps);
-  const API_ENDPOINT = `${process.env.NEXT_PUBLIC_BASE_URL}/api?limit=10&has_breeds=1`;
+  const API_ENDPOINT = `/api?limit=10&has_breeds=1`;
 
   useEffect(() => {
     async function fetchCats() {
