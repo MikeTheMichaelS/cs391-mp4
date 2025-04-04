@@ -9,6 +9,7 @@ export default function CatImage({ props }: { props: catProp }) {
             {props.breeds && props.breeds.length > 0 ? (
                 <Link href={`/breeds/${props.breeds[0].id}`} className="flex justify-center items-center m-4">
                     <Image
+                        loader={() => props.url}
                         className="rounded-lg shadow-lg"
                         src={props.url}
                         alt={`Cat with id ${props.id}`}
@@ -18,6 +19,7 @@ export default function CatImage({ props }: { props: catProp }) {
                 </Link>
             ) : (
                 <Image
+                    loader={() => props.url}
                     className="rounded-lg shadow-lg"
                     src={props.url}
                     alt={`Cat with id ${props.id}`}
